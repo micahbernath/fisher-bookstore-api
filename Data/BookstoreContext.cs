@@ -9,11 +9,13 @@ namespace Fisher.Bookstore.Api.Models
         public BookstoreContext(DbContextOptions<BookstoreContext> options)
             : base(options)
         {
+            // delete constructor code that seeded our data
         }
+
+        protected override void OnModelCreating(ModelBuilder builder) => base.OnModelCreating(builder);
 
 
         public DbSet<Book> Books { get; set; }
-
         public DbSet<Author> Authors { get; set; }
 
     }
